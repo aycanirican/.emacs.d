@@ -1,0 +1,1 @@
+(setenv "CORESERVER_HOME" "~/core-server/")

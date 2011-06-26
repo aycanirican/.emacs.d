@@ -1,0 +1,9 @@
+backups/*
+auto-save-list
+private.el
+*elc
+url/cookies
+session*
+tramp
+\#*
+
