@@ -62,7 +62,6 @@
  '(scroll-bar-mode nil)
  '(size-indication-mode t)
  '(tool-bar-mode nil)
- '(browse-url-browser-function (quote browse-url-w3))
  '(ecb-options-version "2.32")
  '(jde-ant-home "/usr")
  '(jde-ant-buildfile "./build.xml")
