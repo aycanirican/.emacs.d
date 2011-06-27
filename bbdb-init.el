@@ -1,11 +1,11 @@
 (when (locate-library "bbdb")
+  (setq bbdb-file "~/.emacs.d/.bbdb")
   (require 'bbdb)
   (bbdb-initialize 'gnus 'message)
   (bbdb-insinuate-gnus)
   (add-hook 'gnus-startup-hook 'bbdb-insinuate-gnus)
   (bbdb-initialize 'gnus 'message)
   (setq bbdb-default-country "tr")
-  (setq bbdb-file "~/.emacs.d/.bbdb")
   (setq bbdb-send-mail-style 'message)
   (setq bbdb-user-mail-names (regexp-opt '("aycan@core.gen.tr"
 					   "aycan.irican@core.gen.tr")))

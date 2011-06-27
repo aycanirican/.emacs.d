@@ -43,6 +43,8 @@
 ;;(autoload 'ansi-color-for-comint-mode-on "ansi-color" nil t)
 ;;(add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
 
+(add-to-list 'default-frame-alist '(font . "-unknown-Monaco-normal-normal-normal-*-*-*-*-*-m-0-iso10646-1"))
+
 ;; Customizations
 (custom-set-variables
  '(inhibit-startup-message t)
