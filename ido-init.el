@@ -1,5 +1,12 @@
+;; Enable ido which provides keyboard economy
+(require 'ido)
+(ido-mode t)
+
 (add-hook 'ido-make-file-list-hook 'ido-sort-mtime)
 (add-hook 'ido-make-dir-list-hook 'ido-sort-mtime)
+(setq ido-enable-flex-matching t
+      ido-enable-tramp-completion nil
+      ido-show-dot-for-dired t)
 
 ;; Sort by modification time
 (defun ido-sort-mtime ()

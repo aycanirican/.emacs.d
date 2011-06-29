@@ -11,9 +11,6 @@
 
 (require 'font-lock)
 
-;; Enable ido which provides keyboard economy
-(require 'ido)
-(ido-mode t)
 (display-time)
 
 (when (not (string-equal "root" (getenv "USER")))
