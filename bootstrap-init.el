@@ -27,6 +27,7 @@
   (load "~/.emacs.d/auctex-init")
   (load "~/.emacs.d/psgml-init")
   (load "~/.emacs.d/pandoc-init")
+  (load "~/.emacs.d/easypg-init")
   ;;(load "~/.emacs.d/slime-init")
   ;;(load "~/.emacs.d/core-server-init")
   ;;(load "~/.emacs.d/ess-init")
