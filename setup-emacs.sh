@@ -5,7 +5,7 @@ MONACO=http://jorrel.googlepages.com/Monaco_Linux.ttf
 FONTSDIR=~/.fonts
 
 installDeps () {
-    sudo apt-get install git-core ghc6 happy alex haskell-mode cabal-install
+    sudo apt-get install git-core magit ghc6 happy alex haskell-mode cabal-install
 }
 
 installFont () {
