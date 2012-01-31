@@ -1,4 +1,7 @@
-;; ;;;; haskell-mode
+;;;; haskell-mode
+
+;; Add .cabal to the PATH
+(setq exec-path (cons "~/.cabal/bin" exec-path))
 
 ;; maximum colors
 (global-font-lock-mode 1)
@@ -32,8 +35,8 @@
 
 ;(setq haskell-program-name "/usr/bin/ghci")
 ;(setq haskell-ghci-program-name "/usr/bin/ghci")
-(setq haskell-program-name "~/ghc703/bin/ghci")
-(setq haskell-ghci-program-name "~/ghc703/bin/ghci")
+;(setq haskell-program-name "~/ghc703/bin/ghci")
+;(setq haskell-ghci-program-name "~/ghc703/bin/ghci")
 
 (autoload 'run-ghci "haskell-ghci" "Go to the *ghci* buffer" t nil)
 (defalias 'run-haskell (quote switch-to-haskell))
