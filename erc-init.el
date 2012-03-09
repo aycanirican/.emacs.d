@@ -51,7 +51,8 @@
 
 ;; Automatically /join those
 (setq erc-autojoin-channels-alist
-      '(("freenode.net" "#haskell" "#happs" "#snapframework")))
+      '(("freenode.net" "#haskell" "#happs" "#snapframework")
+        ("paraphysics.net" "#dragonflybsd")))
 
 (setq erc-keywords '("fxr" "v0|d" "c0r3"))
 (setq erc-notify-list '("v0|d"))
