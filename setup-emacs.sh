@@ -21,6 +21,7 @@ installDotEmacs () {
 }
 
 installGhcMod () {
+    cabal update
     mkdir -p ~/elisp/ghcmod/
     cabal install ghc-mod
     cd ~/.cabal/share/ghc-mod-*
