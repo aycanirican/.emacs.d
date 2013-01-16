@@ -11,4 +11,10 @@
   (add-hook 'LaTeX-mode-hook 'LaTeX-math-mode)
   (add-hook 'LaTeX-mode-hook 'turn-on-reftex)
   (setq reftex-plug-into-AUCTeX t)
-)   
+
+  (add-hook 'LaTeX-mode-hook 'TeX-source-correlate-mode)
+  (setq TeX-source-correlate-start-server t)
+
+  (setq TeX-view-program-list '(("Evince" "evince --page-index=%(outpage) %o")))
+  (setq TeX-view-program-selection '((output-pdf "Evince")))
+)
