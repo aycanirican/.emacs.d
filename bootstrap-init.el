@@ -4,6 +4,8 @@
 (setq auto-save-file-name-transforms
       `((".*" ,temporary-file-directory t)))
 
+(menu-bar-mode 0)
+
 ;; Enable iBuffer
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 (autoload 'ibuffer "ibuffer" "List buffers." t)
@@ -27,12 +29,13 @@
   (load "~/.emacs.d/psgml-init")
   (load "~/.emacs.d/pandoc-init")
   (load "~/.emacs.d/easypg-init")
+  (load "~/.emacs.d/cedet-init")
+  (load "~/.emacs.d/android-init")
   ;;(load "~/.emacs.d/slime-init")
   ;;(load "~/.emacs.d/core-server-init")
   ;;(load "~/.emacs.d/ess-init")
   ;;(load "~/.emacs.d/ecb-init")
   ;;(load "~/.emacs.d/dvc-init")
-  ;;(load "~/.emacs.d/jde-init") 
   (load "~/.emacs.d/private")
   )
 
