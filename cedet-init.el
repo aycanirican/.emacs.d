@@ -18,3 +18,4 @@
            '(("\\.java$" . jde-mode))
            auto-mode-alist))
   )
+)
