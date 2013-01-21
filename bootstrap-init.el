@@ -1,16 +1,16 @@
-(setq backup-directory-alist
-      `((".*" . ,temporary-file-directory)))
+(setq emacs-start-time (current-time))
 
+;; Backup and auto safe files goes to /tmp/
+(setq backup-directory-alist
+  `((".*" . ,temporary-file-directory)))
 (setq auto-save-file-name-transforms
-      `((".*" ,temporary-file-directory t)))
+  `((".*" ,temporary-file-directory t)))
 
 (menu-bar-mode 0)
 
 ;; Enable iBuffer
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 (autoload 'ibuffer "ibuffer" "List buffers." t)
-
-(require 'font-lock)
 
 (display-time)
 
@@ -39,35 +39,30 @@
   (load "~/.emacs.d/private")
   )
 
-;;;; ansi-color
-;;(autoload 'ansi-color-for-comint-mode-on "ansi-color" nil t)
-;;(add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
-
+;; Set frames' font to Monaco (which you should install manually)
 (add-to-list 'default-frame-alist '(font . "Monaco-10"))
 
 ;; Customizations
 (custom-set-variables
  '(inhibit-startup-message t)
  '(mouse-avoidance-mode 'animate)
+ '(display-time-mode t)
  '(display-time-24hr-format t)
  '(line-number-mode t)
  '(column-number-mode t)
+ '(size-indication-mode t)
  '(show-paren-mode t)
  '(transient-mark-mode t)
  '(global-font-lock-mode t)
  '(font-lock-maximum-decoration t)
- '(column-number-mode t)
- '(display-time-mode t)
  '(face-font-family-alternatives (quote (("courier" "fixed") ("helv" "helvetica" "arial" "fixed"))))
  '(scroll-bar-mode nil)
- '(size-indication-mode t)
- '(tool-bar-mode nil)
- '(ecb-options-version "2.32")
- '(jde-ant-home "/usr")
- '(jde-ant-buildfile "./build.xml")
- '(jde-ant-use-global-classpath nil)
- '(jde-compile-option-classpath (quote ("/usr/lib/ant.jar" "/usr/lib/ant-launcher.jar")))
- '(jde-jdk-registry (quote (("1.6.0" . "/usr/lib/jvm/java-6-sun/")))))
+ '(tool-bar-mode nil))
 
 (custom-set-faces
  '(default ((t (:inherit nil :stipple nil :background "black" :foreground "green" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 99 :width normal :foundry "unknown" :family "DejaVu Sans Mono")))))
+
+(when (require 'time-date nil t)
+  (message "Emacs startup time: %d seconds."
+     (time-to-seconds (time-since emacs-start-time)))
+  )
