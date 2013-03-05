@@ -1,5 +1,8 @@
 (setq emacs-start-time (current-time))
 
+;; start emacs server
+(server-start)
+
 ;; Backup and auto safe files goes to /tmp/
 (setq backup-directory-alist
   `((".*" . ,temporary-file-directory)))
@@ -14,7 +17,16 @@
 
 (display-time)
 
+;; packages
+(require 'package)
+(add-to-list 'package-archives 
+    '("marmalade" .
+      "http://marmalade-repo.org/packages/"))
+(package-initialize)
+
 (when (not (string-equal "root" (getenv "USER")))
+  (load "~/.emacs.d/bindings-init")
+  (load "~/.emacs.d/smex-init")
   (load "~/.emacs.d/w3m-init")
   (load "~/.emacs.d/haskell-init")
   (load "~/.emacs.d/ghcmod-init")
@@ -29,8 +41,9 @@
   (load "~/.emacs.d/psgml-init")
   (load "~/.emacs.d/pandoc-init")
   (load "~/.emacs.d/easypg-init")
-  (load "~/.emacs.d/cedet-init")
-  (load "~/.emacs.d/android-init")
+  ;;(load "~/.emacs.d/cedet-init")
+  ;;(load "~/.emacs.d/android-init")
+  (load "~/.emacs.d/gnus-init")
   ;;(load "~/.emacs.d/slime-init")
   ;;(load "~/.emacs.d/core-server-init")
   ;;(load "~/.emacs.d/ess-init")
