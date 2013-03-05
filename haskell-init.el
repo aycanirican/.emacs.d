@@ -35,8 +35,8 @@
 
 ;(setq haskell-program-name "/usr/bin/ghci")
 ;(setq haskell-ghci-program-name "/usr/bin/ghci")
-;(setq haskell-program-name "~/ghc703/bin/ghci")
-;(setq haskell-ghci-program-name "~/ghc703/bin/ghci")
+(setq haskell-program-name "~/ghc762/bin/ghci")
+(setq haskell-ghci-program-name "~/ghc762/bin/ghci")
 
 (autoload 'run-ghci "haskell-ghci" "Go to the *ghci* buffer" t nil)
 (defalias 'run-haskell (quote switch-to-haskell))
