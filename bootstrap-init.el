@@ -79,3 +79,33 @@
   (message "Emacs startup time: %d seconds."
      (time-to-seconds (time-since emacs-start-time)))
   )
+
+;; Toggle between eshell-currentwindow
+(global-set-key (kbd "C-M-e")
+  (lambda () "Bring up a full-screen eshell or restore previous config."
+    (interactive)
+    (if (string= "eshell-mode" major-mode)
+        (jump-to-register :eshell-fullscreen)
+      (progn
+        (window-configuration-to-register :eshell-fullscreen)
+        (eshell)
+        (delete-other-windows)))))
+
+;; Reset the UI to my norms
+(defun reset-ui (&optional frame)
+  (if frame
+      (select-frame frame))
+  (interactive)
+  (delete-other-windows)
+  (if (window-system)
+      (cond
+       ((= 1050 (display-pixel-height))
+        (set-frame-size (selected-frame) 203 71)
+        (set-frame-position (selected-frame) 42 0))
+       (t
+        (set-frame-size (selected-frame) 163 44)
+        (set-frame-position (selected-frame) 42 0))))
+  (split-window-horizontally)
+  (set-window-buffer nil "*scratch*"))
+
+(reset-ui)
