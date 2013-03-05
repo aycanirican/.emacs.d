@@ -2,7 +2,8 @@
 
 (global-set-key "\C-cm" 'magit-status)
 
-;; disable minimize
+;; disable minimize and quit
+(global-unset-key (kbd "C-x C-c"))
 (global-unset-key (kbd "C-x C-z"))
 
 
