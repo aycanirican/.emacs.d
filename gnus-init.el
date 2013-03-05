@@ -25,12 +25,14 @@
 			    (nnimap-address "imap.core.gen.tr")
 			    (nnimap-server-port 993)
 			    (nnimap-stream ssl)
+                            (nnimap-inbox "INBOX")
+                            (nnimap-unsplittable-articles nil)
 			    (nnimap-authenticator login)
                             (nnimap-expunge-on-close always)
                             (setq nnimap-nov-is-evil t)
-			    (nnimap-list-pattern ("INBOX" "*"))))
+			    (nnimap-list-pattern ("INBOX" "*"))
+                            (nnimap-split-methods 'nnmail-split-fancy)))
 
-(setq nnimap-split-methods 'nnmail-split-fancy)
 (setq nnmail-split-abbrev-alist
       '((any . 
              "from\\|to\\|cc\\|sender\\|apparently-to\\|resent-from\\|resent-to\\|resent-cc")
@@ -40,7 +42,7 @@
         (daemon-errors . "Cron daemon\\|mailer-daemon")
         (list . "list-id\\|x-mailing-list\\|to\\|cc\\|sender")))
 
-(setq nnimap-split-rule '(("coregentr" ("INBOX" nnimap-split-fancy)))
+(setq nnimap-split-rules '(("coregentr" ("INBOX" nnimap-split-fancy)))
       nnimap-split-fancy 
       '(| (: gnus-registry-split-fancy-with-parent)
           (: spam-split 'spam-use-regex-headers)
@@ -107,9 +109,11 @@
       )
 
 ;; Customizations
+(set (if (< emacs-major-version 24) 'nnimap-split-inbox 'nnimap-inbox) "INBOX")
+
 (setq spam-use-bogofilter t
       spam-log-to-registry t
-      spam-use-BBDB t
+;;      spam-use-BBDB t
       spam-use-regex-headers t
       spam-mark-only-unseen-as-spam t
       spam-split-group "INBOX.Spam"
@@ -119,7 +123,6 @@
       spam-mark-ham-unread-before-move-from-spam-group t
       query-user-mail-address nil
       mail-user-agent gnus-user-agent
-      nnimap-split-inbox '("INBOX")
       nnimap-split-predicate "UNDELETED"
       nnimap-split-crosspost nil
       imap-ssl-program "openssl s_client -quiet -ssl3 -connect %s:%p"
