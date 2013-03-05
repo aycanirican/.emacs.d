@@ -7,5 +7,5 @@ url/cookies
 session*
 tramp
 \#*
-
+elpa/*
 /.bbdb
