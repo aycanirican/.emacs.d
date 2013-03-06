@@ -73,7 +73,7 @@
           ("List-Id" ".*debian-haskell.lists.debian.org.*" "INBOX.Lists.haskell-debian")
           ("List-Id" ".*movitz-devel.common-lisp.net.*" "INBOX.Lists.Movitz-Devel")
           ("List-Id" ".*glasgow-haskell-users.haskell.org.*" "INBOX.Lists.haskell-ghc")
-          ("BestServHost" ".*crater.dragonflybsd.org.*" "INBOX.Lists.dfly-users")
+          ("List-Id" ".*users.dragonflybsd.org.*" "INBOX.Lists.dfly-users")
           ;;("X-Spam-Status" "Yes.*" "INBOX.Spamassassined")
           ;;("subject" "Backup report" "INBOX.backupreports")
           ;;("from" "MAILER-DAEMON@example\\.com" "INBOX.example.mailer-daemon") 
@@ -145,6 +145,12 @@
       gnus-visible-headers '("^From" "^To" "^Cc" "^Bcc" "^Subject" "^Date" "^User-Agent")
       gnus-save-newsrc-file nil 
       gnus-read-newsrc-file nil)
+
+;; No HTML mail
+(setq gnus-buttonized-mime-types
+      '("multipart/alternative" "multipart/signed")
+      mm-discouraged-alternatives
+      '("text/html" "image/.*"))
 
 (setq gnus-outgoing-message-group
       '(lambda () (list (if (message-mail-p) gnus-newsgroup-name)
