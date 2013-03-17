@@ -81,16 +81,25 @@
      (time-to-seconds (time-since emacs-start-time)))
   )
 
-;; Toggle between eshell-currentwindow
-(global-set-key (kbd "C-M-e")
-  (lambda () "Bring up a full-screen eshell or restore previous config."
-    (interactive)
-    (if (string= "eshell-mode" major-mode)
-        (jump-to-register :eshell-fullscreen)
-      (progn
-        (window-configuration-to-register :eshell-fullscreen)
-        (eshell)
-        (delete-other-windows)))))
+;; Eshell path fix. Toggle between eshell-currentwindow
+(require 'eshell)
+(defun eshell-mode-hook-func ()
+  (let ((my-path (concat "/home/aycan/ghc762/bin:/home/aycan/.cabal/bin/:" (getenv "PATH"))))
+    (setq eshell-path-env my-path)
+    (setenv "PATH" my-path)))
+
+(global-set-key 
+ (kbd "C-M-e")
+ (lambda () "Bring up a full-screen eshell or restore previous config."
+   (interactive)
+   (if (string= "eshell-mode" major-mode)
+       (jump-to-register :eshell-fullscreen)
+     (progn
+       (window-configuration-to-register :eshell-fullscreen)
+       (eshell)
+       (delete-other-windows)))))
+
+(add-hook 'eshell-mode-hook 'eshell-mode-hook-func)
 
 ;; Reset the UI to my norms
 (defun reset-ui (&optional frame)
