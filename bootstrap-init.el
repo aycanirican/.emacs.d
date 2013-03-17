@@ -4,6 +4,7 @@
 (server-start)
 
 ;; Backup and auto safe files goes to /tmp/
+(setq temporary-file-directory "~/.tmp/")
 (setq backup-directory-alist
   `((".*" . ,temporary-file-directory)))
 (setq auto-save-file-name-transforms
@@ -58,7 +59,7 @@
 ;; Customizations
 (custom-set-variables
  '(inhibit-startup-message t)
- '(mouse-avoidance-mode 'animate)
+;; '(mouse-avoidance-mode 'animate)
  '(display-time-mode t)
  '(display-time-24hr-format t)
  '(line-number-mode t)
