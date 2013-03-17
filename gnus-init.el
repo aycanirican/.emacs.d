@@ -33,6 +33,8 @@
 			    (nnimap-list-pattern ("INBOX" "*"))
                             (nnimap-split-methods 'nnmail-split-fancy)))
 
+(setq gnus-secondary-select-methods '((nntp "news.gwene.org")))
+
 (setq nnmail-split-abbrev-alist
       '((any . 
              "from\\|to\\|cc\\|sender\\|apparently-to\\|resent-from\\|resent-to\\|resent-cc")
