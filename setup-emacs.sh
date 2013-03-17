@@ -18,6 +18,7 @@ installDotEmacs () {
     cd ~/
     git clone $REPO
     echo "(load \"~/.emacs.d/bootstrap-init.el\")" >> ~/.emacs
+    mkdir ~/.tmp/
 }
 
 installGhcMod () {
