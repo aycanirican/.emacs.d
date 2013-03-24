@@ -9,3 +9,7 @@ tramp
 \#*
 elpa/*
 /.bbdb
+bookmarks
+pivotal*
+zsh/*
+url/*
