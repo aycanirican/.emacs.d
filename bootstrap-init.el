@@ -3,9 +3,11 @@
       tramp-chunksize 500)
 
 ;; set all the different path implementations :(
-(let ((my-path (concat "/home/aycan/ghc762/bin:/home/aycan/.cabal/bin:" (getenv "PATH"))))
+
+(let ((home (getenv "HOME"))
+      (my-path (concat "~/ghc762/bin:~/.cabal/bin:" (getenv "PATH"))))
     (setq eshell-path-env my-path)
-    (setq exec-path (append '("/home/aycan/ghc762/bin" "/home/aycan/.cabal/bin") exec-path))
+    (setq exec-path (append '("~/ghc762/bin" "~/.cabal/bin") exec-path))
     (setenv "PATH" my-path))
 
 ;; start emacs server
@@ -38,11 +40,11 @@
   (load "~/.emacs.d/bindings-init")
   (load "~/.emacs.d/smex-init")
   (load "~/.emacs.d/w3m-init")
+  (load "~/.emacs.d/yasnippet-init")
   (load "~/.emacs.d/haskell-init")
   (load "~/.emacs.d/ghcmod-init")
   (load "~/.emacs.d/browse-apropos-url")
   (load "~/.emacs.d/ido-init")
-  (load "~/.emacs.d/yasnippet-init")
   (load "~/.emacs.d/magit-init")
   (load "~/.emacs.d/erc-init")
   (load "~/.emacs.d/bbdb-init")

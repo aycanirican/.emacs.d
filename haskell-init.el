@@ -14,6 +14,12 @@
 ;; use spaces instead of tabs
 (setq-default indent-tabs-mode nil)
 
+;; Add .hs to speedbar
+(require 'speedbar)
+(speedbar-add-supported-extension ".hs")
+(speedbar-add-supported-extension ".lhs")
+(speedbar-add-supported-extension ".hsc")
+
 ;; haskell-interactive-mode
 (autoload 'notify "notify" "Notify TITLE, BODY." t)
 (autoload 'haskell-mode "haskell-mode" "haskell" t)
@@ -35,6 +41,7 @@
 (add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
 (add-hook 'haskell-mode-hook 'haskell-hook)
 (add-hook 'haskell-cabal-mode-hook 'haskell-cabal-hook)
+(add-hook 'haskell-mode-hook '(lambda () (yas-minor-mode)))
 
 (autoload 'switch-to-haskell "inf-haskell"
  "Show the inferior-haskell buffer.  Start the process if needed." t nil)
@@ -55,7 +62,6 @@
 
 (autoload 'run-ghci "haskell-ghci" "Go to the *ghci* buffer" t nil)
 (defalias 'run-haskell (quote switch-to-haskell))
-
 
 (defun haskell-hook ()
   (define-key haskell-mode-map [?\C-c ?\C-z] 'haskell-interactive-switch)

@@ -146,7 +146,8 @@
       gnus-agent-expire-days 12
       gnus-visible-headers '("^From" "^To" "^Cc" "^Bcc" "^Subject" "^Date" "^User-Agent")
       gnus-save-newsrc-file nil 
-      gnus-read-newsrc-file nil)
+      gnus-read-newsrc-file nil
+      message-forward-as-mime nil)
 
 ;; No HTML mail
 (setq gnus-buttonized-mime-types
