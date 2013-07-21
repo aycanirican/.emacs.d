@@ -2,9 +2,12 @@
 ;; Add .cabal to the PATH
 (setq exec-path (cons "~/.cabal/bin" exec-path))
 
+;; flymake
+(require 'flymake)
+
 ;; maximum colors
-(setq font-lock-maximum-decoration t)
-(setq haskell-font-lock-symbols t)
+;(setq font-lock-maximum-decoration t)
+;(setq haskell-font-lock-symbols t)
 
 ;; extra key bindings
 (global-set-key "\M-C" 'compile)
@@ -72,7 +75,7 @@
   (define-key haskell-mode-map (kbd "C-c C-i") 'haskell-process-do-info)
   (define-key haskell-mode-map (kbd "SPC") 'haskell-mode-contextual-space)
   (define-key haskell-mode-map [f8] 'haskell-navigate-imports)
-
+  (define-key haskell-mode-map (kbd "C-c C-l") 'haskell-process-load-or-reload)
   ;; Jump to the definition of the current symbol.
   (define-key haskell-mode-map (kbd "M-.") 'haskell-mode-tag-find)
 

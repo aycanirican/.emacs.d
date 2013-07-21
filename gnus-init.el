@@ -1,17 +1,18 @@
+(require 'spam)
+(require 'epg-config)
+(require 'epa-mail)
+
+(gnus-registry-initialize)
+(spam-initialize)
 (setq-default gnus-asynchronous t)
 (setq-default gnus-novice-user nil)
 (setq-default gnus-use-cache t)
 (setq gnus-registry-max-entries 2500
       gnus-registry-use-long-group-names t)
-(gnus-registry-initialize)
 
 ;;(setq imap-ssl-program "/usr/sbin/stunnel -c -A /etc/certs/ -v 2 -S 0 -f -r %s:%p")
 
-(spam-initialize)
-(require 'spam)
 ;; EasyPG Assistant settings
-(require 'epg-config)
-(require 'epa-mail)
 
 ;; personalization
 (setq user-full-name "Aycan iRiCAN")

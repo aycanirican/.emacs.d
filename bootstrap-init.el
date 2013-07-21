@@ -2,6 +2,12 @@
 (setq tramp-default-method "ssh"
       tramp-chunksize 500)
 
+;; use cups
+(setq ps-paper-type 'a4
+      ps-font-size 7.0
+      ps-print-header nil
+      ps-landscape-mode nil)
+
 ;; set all the different path implementations :(
 
 (let ((home (getenv "HOME"))
@@ -36,13 +42,14 @@
 (package-initialize)
 
 (when (not (string-equal "root" (getenv "USER")))
-  (load "~/.emacs.d/pivotaltracker-init")
+  (load "~/.emacs.d/pivotaltracker-init") 
   (load "~/.emacs.d/bindings-init")
   (load "~/.emacs.d/smex-init")
   (load "~/.emacs.d/w3m-init")
+  (load "~/.emacs.d/org-mode-init")
   (load "~/.emacs.d/yasnippet-init")
   (load "~/.emacs.d/haskell-init")
-  (load "~/.emacs.d/ghcmod-init")
+;;  (load "~/.emacs.d/ghcmod-init")
   (load "~/.emacs.d/browse-apropos-url")
   (load "~/.emacs.d/ido-init")
   (load "~/.emacs.d/magit-init")
@@ -153,3 +160,25 @@ makes)."
          )
     (flymake-log 3 "create-temp-intemp: file=%s temp=%s" file-name temp-name)
     temp-name))
+
+(defun rotate-windows ()
+  "Rotate your windows"
+  (interactive)
+  (cond
+   ((not (> (count-windows) 1))
+    (message "You can't rotate a single window!"))
+   (t
+    (let ((i 1)
+          (num-windows (count-windows)))
+      (while  (< i num-windows)
+        (let* ((w1 (elt (window-list) i))
+               (w2 (elt (window-list) (+ (% i num-windows) 1)))
+               (b1 (window-buffer w1))
+               (b2 (window-buffer w2))
+               (s1 (window-start w1))
+               (s2 (window-start w2)))
+          (set-window-buffer w1 b2)
+          (set-window-buffer w2 b1)
+          (set-window-start w1 s2)
+          (set-window-start w2 s1)
+          (setq i (1+ i))))))))

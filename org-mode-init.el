@@ -8,10 +8,15 @@
 (transient-mark-mode 1)
 (setq org-log-done t
       org-hide-leading-stars t
-      org-odd-levels-only t)
+      org-odd-levels-only t
+      org-agenda-include-diary t)
 
 (require 'org-mouse)
 (setq org-agenda-files 
-      (list "/home/fxr/org/work.org"
-            "/home/fxr/org/school.org" 
-            "/home/fxr/org/home.org"))
+      (list "/home/fxr/org/work.org"))
+
+(require 'org-install)
+(setq org-directory "~/org/"
+      org-mobile-directory "~/Dropbox/org/"
+      org-mobile-inbox-for-pull "~/org/from-mobile.org")
+
