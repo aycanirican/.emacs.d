@@ -1,6 +1,7 @@
 (setq emacs-start-time (current-time))
 (setq tramp-default-method "ssh"
       tramp-chunksize 500)
+(global-unset-key (kbd "C-z"))
 
 ;; use cups
 (setq ps-paper-type 'a4
@@ -49,6 +50,7 @@
   (load "~/.emacs.d/org-mode-init")
   (load "~/.emacs.d/yasnippet-init")
   (load "~/.emacs.d/haskell-init")
+  (load "~/.emacs.d/jscomint-init")
 ;;  (load "~/.emacs.d/ghcmod-init")
   (load "~/.emacs.d/browse-apropos-url")
   (load "~/.emacs.d/ido-init")
